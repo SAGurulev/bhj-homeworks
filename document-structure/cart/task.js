@@ -1,7 +1,8 @@
 "use strict"
-const cartProducts = document.querySelectorAll(".cart__products");
+const cartProducts = document.querySelector(".cart__products");
 const productQuantity = document.querySelectorAll(".product__quantity-control");
 const productAdd = document.querySelectorAll(".product__add");
+
 for(let b of productQuantity) {
     b.addEventListener("click", changeValue);
 }
@@ -9,10 +10,11 @@ for(let b of productQuantity) {
 for(let b of productAdd) {
     b.addEventListener("click", addValue);
 }
+
 function changeValue(event) {
     let value = event.target.parentNode.querySelector(".product__quantity-value");
-    let count = + value.innerText //innerText меняет содержимое текста
-    if(event.target.classList.contains("product__quantity-control_inc")) {
+    let count = +value.innerText; //innerText меняет содержимое текста
+    if (event.target.classList.contains("product__quantity-control_inc")) {
         count++;
         value.innerText = count;
     } else {
@@ -28,9 +30,9 @@ function changeValue(event) {
 function addValue(event) {
     const product = event.target.closest(".product");
     const id = product.dataset.id;
-    const countProduct = + event.target.parentNode.querySelector(".product__quantity-value").innerText;
-    for(let item of cartProduct.children) {
-        if(item.dataset.id === id) {
+    const countProduct = +event.target.parentNode.querySelector(".product__quantity-value").innerText;
+    for (let item of cartProducts.children) {
+        if (item.dataset.id === id) {
             let productCount = item.querySelector(".cart__product-count");
             let total = +productCount.innerText;
             productCount.innerText = total + countProduct;
@@ -44,5 +46,5 @@ function addValue(event) {
     <img class="cart__product-image" src=${productImg}>
     <div class="cart__product-count">${count}</div>
     </div>`
-    cart.insertAdjacentHTML("beforeEnd", productCart); 
+    cartProducts.insertAdjacentHTML("beforeend", productCart); 
 }
