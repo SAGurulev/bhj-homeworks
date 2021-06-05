@@ -4,7 +4,7 @@ signin.classList.add("signin_active");
 const btn = document.querySelector(".btn");
 const welcome = document.getElementById("welcome");
 const userId = document.getElementById("user_id");
-btn.addEventListener("clock", submit);
+btn.addEventListener("click", submit);
 
 function submit(event) {
     event.preventDefault();
@@ -30,7 +30,7 @@ function submit(event) {
 }
 function init() {
     if (localStorage.userId) {
-        forms.classList.remove('signin_active');
+        signin.classList.remove('signin_active');
         welcome.classList.add('welcome_active');
         userId.innerText = localStorage.userId;
     }

@@ -7,7 +7,5 @@ function save(event) {
 }
 window.addEventListener("load", getLoad);
 function getLoad(event) {
-    if(localStorage.text) {
-        editor.value = localStorage.text;
-    }
+    editor.value = localStorage.getItem('text');
 }

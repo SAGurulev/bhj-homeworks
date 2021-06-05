@@ -12,9 +12,9 @@ function cosedModal(event) {
 }
 
 window.addEventListener("load", readedCookie);
-const cooki = (name) => {
-    const value = "; " + document.cookie;
-    let parts = value.split("; " + name + "=");
+const cooks = (name) => {
+    const value = ";" + document.cookie;
+    let parts = value.split(";" + name + "=");
     if (parts.length === 2) {
         return parts
             .pop()
@@ -22,7 +22,7 @@ const cooki = (name) => {
             .shift();
     }
 }
-
+console.log(document.cookie);
 function readedCookie(event) {
-    (!сooki('close')) ? modal.classList.add("modal_active"): modal.classList.remove("modal_active");
+    (!cooks('closed')) ? modal.classList.add("modal_active"): modal.classList.remove("modal_active");
 }
